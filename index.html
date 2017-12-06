@@ -1,0 +1,139 @@
+
+<html>
+<head>
+	<link href="assets/ratchet/css/ratchet.css" rel="stylesheet">
+	<link href="assets/css/styles.css" rel="stylesheet">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
+</head>
+<body>
+<script id="home-tpl" type="text/template">
+	<header class="bar bar-nav">
+	<h1 class="title">Directory</h1>
+	</header>
+	<div class="bar bar-standard bar-header-secondary">
+	<button class = "searchByName"> <a href="#nameRoute/name-view">Search by name</a></button>
+	<button class = "searchByDepartmentTitle"><a href = "#DTRoute/dep-title-view">Search by department</a></button>
+	
+
+
+	</div>
+	<div class="content"></div>
+</script>
+
+<script id="name-tpl" type="text/template">
+	<header class="bar bar-nav">
+	<h1 class="title">Directory</h1>
+	</header>
+	<div class="bar bar-standard bar-header-secondary">
+	  <input class='search-key1' type="search" name= "FirstName"/>
+	  <input class='search-key2' type="search" name= "LastName"/>
+	  
+
+	</div>
+	<div class="content"></div>
+</script>
+
+<script id="department-tpl" type="text/template">
+	<header class="bar bar-nav">
+	<h1 class="title">Directory</h1>
+	</header>
+	<div class="bar bar-standard bar-header-secondary">
+	  
+	  <input class='search-key3' type="search" name= "Department"/>
+	  <input class='search-key4' type="search" name= "Title"/>
+
+	</div>
+	<div class="content"></div>
+</script>
+
+
+<script id="employee-list-tpl" type="text/template">
+	<br><br><br><br><br><br>
+	<ul class="table-view">
+	{{#each this}}
+	<li class="table-view-cell media">
+	<a href="#employees/{{ id }}">
+	<img class="media-object pull-left" src="assets/pics/{{pic}}">
+	<div class="media-body">
+	{{firstName}} {{lastName}}
+	<p>{{title}}</p>
+	</div>
+	</a>
+	</li>
+	{{/each}}
+	</ul>
+</script>
+
+<script id="employee-tpl" type="text/template">
+      <header class="bar bar-nav">
+          <a class="btn btn-link btn-nav pull-left" href="#">
+              <span class="icon icon-left-nav"></span>
+          </a>
+          <h1 class="title">Employee</h1>
+      </header>
+      <div class="content">
+          <div class="card">
+              <ul class="table-view">
+                  <li class="table-view-cell media">
+                      <img class="media-object pull-left emp-pic" src="assets/pics/{{pic}}">
+                      <div class="media-body">
+                          {{ firstName }} {{ lastName }}
+                          <p>{{ title }}</p>
+                      </div>
+                  </li>
+                  <li class="table-view-cell media">
+                      <a href="tel:{{ officePhone }}" class="push-right">
+                          <span class="media-object pull-left icon icon-call"></span>
+                          <div class="media-body">
+                              Call Office
+                              <p>{{ officePhone }}</p>
+                          </div>
+                      </a>
+                  </li>
+                  <li class="table-view-cell media">
+                      <a href="tel:{{ cellPhone }}" class="push-right">
+                          <span class="media-object pull-left icon icon-call"></span>
+                          <div class="media-body">
+                              Call Cell
+                              <p>{{ cellPhone }}</p>
+                          </div>
+                      </a>
+                  </li>
+                  <li class="table-view-cell media">
+                      <a href="sms:{{ cellPhone }}" class="push-right">
+                          <span class="media-object pull-left icon icon-sms"></span>
+                          <div class="media-body">
+                              SMS
+                              <p>{{ cellPhone }}</p>
+                          </div>
+                      </a>
+                  </li>
+                  <li class="table-view-cell media">
+                      <a href="mailto:{{ email }}" class="push-right">
+                          <span class="media-object pull-left icon icon-mail"></span>
+                          <div class="media-body">
+                              Email
+                              <p>{{ email }}</p>
+                          </div>
+                      </a>
+                  </li>
+
+              </ul>
+          </div>
+      </div>
+ </script>
+<script src="js/EmployeeListView.js"></script>
+<script src="js/SearchByNameView.js"></script>
+<script src="js/SearchByDepartmentTitleView.js"></script>
+<script src="js/HomeView.js"></script>
+<script src="lib/handlebars.js"></script>
+<script src="cordova.js"></script>
+<script src="lib/jquery.js"></script>
+<script src="lib/router.js"></script>
+<script src="js/services/memory/EmployeeService.js"></script>
+<script src="js/EmployeeView.js"></script>
+<script src="js/app.js"></script>
+
+</body>
+</html>
